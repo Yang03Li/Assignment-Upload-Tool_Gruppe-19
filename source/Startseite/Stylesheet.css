@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+.header {
+    margin-top: 20px;
+}
+
+.divider {
+    width: 100%;
+    border: none;
+    border-top: 2px solid black;
+    margin: 10px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0;
+}
+
+.left, .center, .right {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.courses-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 50%;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left, .center, .right {
+        width: 90%;
+    }
+}
