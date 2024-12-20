@@ -6,7 +6,7 @@
     <title>GBS: Grundlagen der Betriebssysteme</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body onload="checkskip()">
     <header>
         <a href="../Startseite/Startseite.html">
             <img src="data/haus.png" alt="Haus Icon" class="house-icon">
@@ -52,6 +52,12 @@
 
         const tableBody = document.getElementById("groupTableBody");
 
+        function checkskip() {
+            if (localStorage.getItem('gruppebeigetreten') === 'true') {
+                window.location.href = '../Kursübersicht/Kursübersicht.html';
+            }
+        }
+        
         function renderGroups() {
             tableBody.innerHTML = "";
             groups.forEach((group, index) => {
@@ -107,7 +113,9 @@
                 document.getElementById("newGroupName").value = "";
                 document.getElementById("createGroupButton").style.display = "block";
                 document.getElementById("createGroupButton").style.display = "none";
+                localStorage.setItem('gruppebeigetreten', 'true');
                 hideJoinButtons()
+                setTimeout(checkskip, 1000);
             } else {
                 alert("Bitte gib einen Gruppennamen ein!");
             }
@@ -122,7 +130,9 @@
             document.getElementById("popup").style.display = "none";
             document.getElementById("overlay").style.display = "none";
             document.getElementById("createGroupButton").style.display = "none";
+            localStorage.setItem('gruppebeigetreten', 'true');
             hideJoinButtons();
+            setTimeout(checkskip, 1000);
         }
 
         renderGroups();
