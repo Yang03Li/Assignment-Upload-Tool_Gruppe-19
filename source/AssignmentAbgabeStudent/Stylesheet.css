@@ -14,12 +14,14 @@ body {
     align-items: center;
     width: 100%;
     padding: 10px 20px;
+    text-decoration: none;
 }
 
 .home-button {
     height: 3.4em;
     width: auto;
     padding: 0;
+    margin-right: 10px;
 }
 
 .page-title {
@@ -31,6 +33,7 @@ body {
     text-align: center;
     font-size: 2em;
     margin-top: 20px;
+    line-height: 1.5;
 }
 
 .deadline {
@@ -61,7 +64,6 @@ body {
     background-color: #fff;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
 }
 
 .right-section {
