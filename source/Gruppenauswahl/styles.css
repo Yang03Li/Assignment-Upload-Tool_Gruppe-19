@@ -1,4 +1,3 @@
-/* Allgemeine Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,7 +12,7 @@ header {
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left;
 }
 
 .house-icon {
@@ -26,7 +25,6 @@ h1 {
     margin: 0;
 }
 
-/* Tabellen-Styles */
 .table-section {
     margin: 20px;
 }
@@ -47,7 +45,6 @@ table th {
     background-color: #f2f2f2;
 }
 
-/* Button und Popup-Styles */
 .group-create-section {
     margin: 20px;
     text-align: right;
@@ -65,7 +62,6 @@ button:hover {
     background-color: #0073e6;
 }
 
-/* Popup */
 .popup {
     display: none;
     position: fixed;
@@ -79,7 +75,7 @@ button:hover {
     width: 300px;
     padding: 20px;
     border-radius: 5px;
-    z-index: 2; /* Sicherstellen, dass das Popup über dem Overlay liegt */
+    z-index: 2;
 }
 
 .popup p {
@@ -98,20 +94,18 @@ button:hover {
     cursor: pointer;
 }
 
-/* Eingabefeld für die Gruppe */
 .create-group-div input {
     padding: 10px;
     margin-right: 10px;
 }
 
-/* Overlay für das Ausgrauen */
 .overlay {
-    display: none; /* Standardmäßig versteckt */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Halbtransparenter Hintergrund */
-    z-index: 1; /* Sicherstellen, dass das Overlay unter dem Popup liegt */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
