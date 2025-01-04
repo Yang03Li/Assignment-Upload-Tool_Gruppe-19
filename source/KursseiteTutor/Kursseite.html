@@ -13,7 +13,7 @@
                 <img class="home-button" src="../data/haus.png" alt="Startseite">
             </a>
         </div>
-        <h1>Kurs: Grundlagen der Betriebssysteme</h1>
+        <h1>Kurs: Mensch Computer Interaktion</h1>
     </header>
     <main>
         <section class="assignments">
@@ -37,22 +37,19 @@
         <section class="group-info">
             <h2>Gruppe 7: "007"</h2>
             <ul>
-                <li>Mitglied: ABC (Du)</li>
+                <li>Mitglied: ABC</li>
                 <li>Mitglied: DEF</li>
                 <li>Mitglied: GHI</li>
                 <li>Mitglied: JKL</li>
-                <li>Tutor: XYZ</li>
+                <li>Tutor: XYZ (Du)</li>
             </ul>
-            <button class="leave-group">Gruppe verlassen</button>
+            <a href="../AssignmentAbgabeTutor/AssignmentAbgabe.html"><button class="open-group">Korrigieren</button></a>
         </section>
     </main>
-    <footer>
-        <p>Gesamtpunkte: <span id="total-points">96</span></p>
-    </footer>
 
     <script>
         function loadAssignment(assignment) {
-            document.getElementById('assignment-content').innerHTML = `<h2>Assignment ${assignment}</h2><p>Hier sind die Inhalte für Assignment ${assignment}.</p>`;
+            document.getElementById('assignment-content').innerHTML = `<h2>Assignment ${assignment}</h2><p>Hier sind die Gruppen aufgelistet.</p>`;
         }
     </script>
 </body>

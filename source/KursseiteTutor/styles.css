@@ -100,17 +100,13 @@ main {
     margin-bottom: 5px;
 }
 
-.leave-group {
-    background-color: #dc3545;
+.open-group {
+    background-color: black;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-}
-
-.leave-group:hover {
-    background-color: #c82333;
 }
 
 footer {
