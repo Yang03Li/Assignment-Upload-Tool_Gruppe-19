@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WoZ</title>
+<script type="text/javascript" src="woz.js"></script>
+</head>
+<body>
+
+<h1>Student Input Interface</h1>
+
+<form>
+  <input type="button" value="Create DB" id="create" onclick="createDB();"><br/>
+</form> 
+
+<form>
+  <!-- http://www.w3schools.com/tags/ref_eventattributes.asp -->
+  <input type="radio" name="animalImage" value="cat.jpg" onclick="set('animal');" checked>Cat<br/>
+  <input type="radio" name="animalImage" value="dog.jpg" onclick="set('animal');">Dog<br/>
+  <input type="range" id="animalWidth" min="10" max="500" onchange="set('animal');" oninput="set('animal');"><br/>
+</form> 
+
+<br/>
+
+<form>
+  <input type="button" value="Count" id="counter" onclick="set('counter');"><br/>
+  <input type="checkbox" checked id="showCounter" onclick="set('showCounter');">Show counter<br/>
+  <input type="text" name="mytext" id="mytext" oninput="set('mytext')"><br/>
+</form> 
+
+</body>
+</html>

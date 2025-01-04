@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBS: Grundlagen der Betriebssysteme</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="checkskip()">
+    <header>
+        <a href="../Startseite/Startseite.html">
+            <img src="../data/haus.png" alt="Startseite" class="house-icon">
+        </a>
+        <h1>GBS: Grundlagen der Betriebssysteme</h1>
+    </header>
+
+    <main>
+        <section class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gruppe</th>
+                        <th>Mitgliederzahl</th>
+                    </tr>
+                </thead>
+                <tbody id="groupTableBody"></tbody>
+            </table>
+        </section>
+
+        <section class="group-create-section">
+            <button id="createGroupButton" onclick="showCreateGroupInput()">Gruppe erstellen</button>
+            <div id="createGroupDiv" class="create-group-div" style="display: none;">
+                <input type="text" id="newGroupName" placeholder="Gruppennamen eingeben">
+                <button onclick="createGroup()">Erstellen</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="overlay" class="overlay" style="display: none;"></div>
+
+    <div id="popup" class="popup">
+        <p>Beitrittsanfrage geschickt. Bitte warten, bis ein Gruppenmitglied diese akzeptiert.</p>
+        <button onclick="closePopup()">Schließen</button>
+    </div>
+
+    <script>
+        const groups = [
+            { name: "Gruppe 1", members: 3, maxMembers: 4 },
+            { name: "Gruppe 2", members: 4, maxMembers: 4 },
+            { name: "Gruppe 3", members: 2, maxMembers: 4 }
+        ];
+
+        const tableBody = document.getElementById("groupTableBody");
+
+        function checkskip() {
+            if (localStorage.getItem('gruppebeigetreten') === 'true') {
+                window.location.href = '../Kursseite/Kursseite.html';
+            }
+        }
+        
+        function renderGroups() {
+            tableBody.innerHTML = "";
+            groups.forEach((group, index) => {
+                const row = document.createElement("tr");
+
+                const groupCell = document.createElement("td");
+                groupCell.textContent = group.name;
+                const membersCell = document.createElement("td");
+                membersCell.textContent = `${group.members}/${group.maxMembers}`;
+
+                if (group.members < group.maxMembers) {
+                    const joinButton = document.createElement("button");
+                    joinButton.textContent = "Beitreten";
+                    joinButton.id = "joinButton_" + index;
+                    joinButton.onclick = openPopup;
+
+                    membersCell.style.display = "flex";
+                    membersCell.style.justifyContent = "space-between";
+                    membersCell.appendChild(joinButton);
+                }
+
+                row.appendChild(groupCell);
+                row.appendChild(membersCell);
+
+                tableBody.appendChild(row);
+            });
+        }
+
+
+        function showCreateGroupInput() {
+            document.getElementById("createGroupButton").style.display = "none";
+            document.getElementById("createGroupDiv").style.display = "block";
+        }
+
+        function hideJoinButtons() {
+            const joinButtons = document.querySelectorAll("button[id^='joinButton_']");
+            joinButtons.forEach(button => {
+                button.style.display = "none";
+            });
+        }
+
+        function createGroup() {
+            const groupName = document.getElementById("newGroupName").value;
+            if (groupName) {
+                const newGroup = {
+                    name: groupName,
+                    members: 1,
+                    maxMembers: 4
+                };
+                groups.push(newGroup);
+                renderGroups();
+                document.getElementById("createGroupDiv").style.display = "none";
+                document.getElementById("newGroupName").value = "";
+                document.getElementById("createGroupButton").style.display = "block";
+                document.getElementById("createGroupButton").style.display = "none";
+                localStorage.setItem('gruppebeigetreten', 'true');
+                hideJoinButtons()
+                setTimeout(checkskip, 1000);
+            } else {
+                alert("Bitte gib einen Gruppennamen ein!");
+            }
+        }
+
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("createGroupButton").style.display = "none";
+            localStorage.setItem('gruppebeigetreten', 'true');
+            hideJoinButtons();
+            setTimeout(checkskip, 1000);
+        }
+
+        renderGroups();
+    </script>
+</body>
+</html>
