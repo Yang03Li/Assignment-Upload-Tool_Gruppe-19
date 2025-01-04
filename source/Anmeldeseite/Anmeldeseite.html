@@ -8,17 +8,30 @@
     <link rel="stylesheet" href="Stylesheet.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>Assignment Upload Tool</h1>
+    <h1 class="header">Assignment Upload Tool</h1>
+
+    <div class="logIn">
+        <h2>Anmeldung über WebSSO</h2>
         <form action="../Startseite/Startseite.html">
-            <label for="username">LUH-ID</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="password">WebSSO-Passwort</label>
-            <input type="password" id="password" name="password" required>
-
+            <div class="usernameInput">
+                <h3>LUH-ID</h3>
+                <input type="text">
+            </div>
+            <div class="passwordInput">
+                <h3>WebSSO-Passwort</h3>
+                <input type="text">
+            </div>
+            <label for="anmeldung">
+                <input type="checkbox" id="anmeldung" value="Anmeldung nicht speichern">
+                Anmeldung nicht speichern
+            </label>
+            <label for="datenuebermittlungCheckbox">
+                <input type="checkbox" id="datenuebermittlung"
+                    value="Zustimmung zur Datenübermittlung für den Dienst aufheben">
+                Zustimmung zur Datenübermittlung für den Dienst aufheben
+            </label>
             <button type="submit">Anmelden</button>
-        </form>
+    </form>
     </div>
 </body>
 </html>
