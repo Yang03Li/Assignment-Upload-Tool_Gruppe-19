@@ -102,6 +102,12 @@
         function createGroup() {
             const groupName = document.getElementById("newGroupName").value;
             if (groupName) {
+                const groupExists = groups.some(group => group.name.toLowerCase() === groupName.toLowerCase());
+                if (groupExists) {
+                    alert("Der Gruppenname existiert bereits. Bitte wähle einen anderen Namen.");
+                    return;
+                }
+
                 const newGroup = {
                     name: groupName,
                     members: 1,
