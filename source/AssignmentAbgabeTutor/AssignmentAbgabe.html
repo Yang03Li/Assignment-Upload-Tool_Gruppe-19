@@ -6,6 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aufgabenübersicht</title>
     <link rel="stylesheet" href="Stylesheet.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let formModified = false;
+            const pointsInput = document.querySelector('input[name="points"]');
+            const submitButton = document.querySelector('.korrektur-button');
+            const homeButton = document.querySelector('.home-button');
+
+            pointsInput.addEventListener('input', () => {
+                formModified = pointsInput.value.trim() !== "";
+            });
+
+            submitButton.addEventListener('click', () => {
+                formModified = false;
+            });
+
+            window.addEventListener('beforeunload', (event) => {
+                if (formModified) {
+                    event.preventDefault();
+                    event.returnValue = '';
+                }
+            });
+
+            homeButton.addEventListener('click', (event) => {
+                if (formModified) {
+                    const leave = confirm("Sie haben eine Punktzahl eingegeben. Möchten Sie wirklich die Seite verlassen, ohne die Korrektur abzugeben?");
+                    if (!leave) {
+                        event.preventDefault();
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
