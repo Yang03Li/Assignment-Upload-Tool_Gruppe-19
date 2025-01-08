@@ -6,8 +6,8 @@ body {
 }
 
 header {
-    background-color: #0073e6;
-    color: white;
+    background-color: #f4f4f4;
+    color: black;
     padding: 10px;
     text-align: center;
     display: flex;
@@ -52,14 +52,14 @@ table th {
 
 button {
     padding: 10px 20px;
-    background-color: #0073e6;
+    background-color: black;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0073e6;
+    background-color: grey;
 }
 
 .popup {
