@@ -35,6 +35,10 @@ header {
     padding: 0;
 }
 
+.open-group:hover {
+    background-color: grey;
+}
+
 h1 {
     margin: 0;
 }
