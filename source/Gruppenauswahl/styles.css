@@ -30,6 +30,13 @@ header {
     text-overflow: ellipsis;
 }
 
+.divider {
+    width: 100%;
+    border: none;
+    border-top: 2px solid black;
+    margin: 10px 0;
+}
+
 .table-section {
     margin: 20px;
 }
