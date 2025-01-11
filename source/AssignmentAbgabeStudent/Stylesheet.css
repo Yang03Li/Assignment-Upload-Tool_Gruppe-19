@@ -84,6 +84,10 @@ body {
     cursor: pointer;
 }
 
+.download-button:hover {
+    background-color: grey;
+}
+
 .upload-button {
     margin-top: 10px;
     padding: 5px 10px;
@@ -93,6 +97,10 @@ body {
     border-radius: 4px;
     cursor: pointer;
     margin-left: 40%;
+}
+
+.upload-button:hover {
+    background-color: grey;
 }
 
 .team-list {

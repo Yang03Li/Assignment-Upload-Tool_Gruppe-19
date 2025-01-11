@@ -84,6 +84,10 @@ body {
     cursor: pointer;
 }
 
+.download-button:hover {
+    background-color: grey;
+}
+
 .upload-button {
     margin-top: 10px;
     padding: 5px 10px;
@@ -95,6 +99,10 @@ body {
     margin-left: 40%;
 }
 
+.upload-button:hover {
+    background-color: grey;
+}
+
 .korrektur-button {
     margin-top: 20px;
     padding: 5px 10px;
@@ -104,6 +112,10 @@ body {
     border-radius: 4px;
     cursor: pointer;
     margin-left: 32%;
+}
+
+.korrektur-button:hover {
+    background-color: grey;
 }
 
 .points {
