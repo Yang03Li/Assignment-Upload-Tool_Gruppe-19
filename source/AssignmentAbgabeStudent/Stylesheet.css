@@ -135,3 +135,11 @@ li {
         margin-bottom: 20px;
     }
 }
+
+.download-icon::before {
+    content: "📥";
+}
+
+.delete-icon::before {
+    content: "🗑️";
+}
