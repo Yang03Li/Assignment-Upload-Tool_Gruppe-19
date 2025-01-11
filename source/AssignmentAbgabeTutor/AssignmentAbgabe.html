@@ -8,35 +8,35 @@
     <link rel="stylesheet" href="Stylesheet.css">
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            let formModified = false;
-            const pointsInput = document.querySelector('input[name="points"]');
-            const submitButton = document.querySelector('.korrektur-button');
-            const homeButton = document.querySelector('.home-button');
+        let formModified = false;
+        const pointsInput = document.querySelector('input[name="points"]');
+        const submitButton = document.querySelector('.korrektur-button');
+        const homeButton = document.querySelector('.home-button');
 
-            pointsInput.addEventListener('input', () => {
-                formModified = pointsInput.value.trim() !== "";
-            });
-
-            submitButton.addEventListener('click', () => {
-                formModified = false;
-            });
-
-            window.addEventListener('beforeunload', (event) => {
-                if (formModified) {
-                    event.preventDefault();
-                    event.returnValue = '';
-                }
-            });
-
-            homeButton.addEventListener('click', (event) => {
-                if (formModified) {
-                    const leave = confirm("Sie haben eine Punktzahl eingegeben. Möchten Sie wirklich die Seite verlassen, ohne die Korrektur abzugeben?");
-                    if (!leave) {
-                        event.preventDefault();
-                    }
-                }
-            });
+        pointsInput.addEventListener('input', () => {
+            formModified = pointsInput.value.trim() !== "";
         });
+
+        submitButton.addEventListener('click', () => {
+            formModified = false;
+        });
+
+        window.addEventListener('beforeunload', (event) => {
+            if (formModified) {
+                // Einige Browser unterstützen nur diese Formulierung für die Warnmeldung.
+                event.returnValue = 'Sie haben ungespeicherte Änderungen. Möchten Sie wirklich die Seite verlassen?';
+            }
+        });
+
+        homeButton.addEventListener('click', (event) => {
+            if (formModified) {
+                const leave = confirm("Sie haben eine Punktzahl eingegeben. Möchten Sie wirklich die Seite verlassen, ohne die Korrektur abzugeben?");
+                if (!leave) {
+                    event.preventDefault();
+                }
+            }
+        });
+    });
     </script>
 </head>
 
@@ -94,6 +94,7 @@
                 <label for="points">Erzielte Punkte von 24:</label>
                 <input type="text" name="points" required>
             </div>
+            <button class="korrektur-button">Abgeben</button>
         </div>
     </main>
 
