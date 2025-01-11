@@ -13,13 +13,19 @@ header {
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
     border-bottom: 1px solid #ddd;
 }
 
 .navigation {
     display: flex;
     gap: 10px;
+}
+
+.page-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .home-icon {
