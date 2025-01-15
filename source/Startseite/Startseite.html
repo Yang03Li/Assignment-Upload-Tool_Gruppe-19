@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startseite</title>
     <link rel="stylesheet" href="Stylesheet.css">
 </head>
+
 <body>
     <h1 class="header">Startseite</h1>
     <hr class="divider">
@@ -26,19 +28,22 @@
                         <td>Prog2: Assignment 8</td>
                         <td>01d 06h 24m</td>
                     </tr>
-                    
                 </tbody>
             </table>
         </div>
 
         <div class="center">
             <img class="profile-pic" src="data/Leibniz.jpeg">
+            <div class="speech-bubble" id="speech-bubble">
+                <p id="speech-text"> </p>
+            </div>
             <div class="courses-table">
                 <h2>Kurse</h2>
                 <table>
                     <tbody>
                         <tr>
-                            <td><a href="../Gruppenauswahl/gruppenauswahl.html">GBS: Grundlagen der Betriebssysteme</a></td>
+                            <td><a href="../Gruppenauswahl/gruppenauswahl.html">GBS: Grundlagen der Betriebssysteme</a>
+                            </td>
                         </tr>
                         <tr>
                             <td>HCI: Mensch Computer Interaktion</td>
@@ -74,5 +79,35 @@
             </table>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var sentences = [
+                "Du bist fähiger, als du denkst – vertraue auf deine Kraft.",
+                "Jeder kleine Schritt bringt dich näher zu deinem Ziel.",
+                "Fehler sind keine Niederlagen, sondern Wegweiser zum Erfolg.",
+                "Das Streben nach Wissen macht dich jeden Tag ein Stück größer.",
+                "Selbst die schwierigste Aufgabe kann mit Geduld gemeistert werden.",
+                "Du hast bereits so viel erreicht – halte an deinem Weg fest.",
+                "Dein Einsatz wird belohnt, auch wenn es jetzt noch nicht sichtbar ist.",
+                "In dir steckt eine Quelle unendlicher Möglichkeiten.",
+                "Gib nicht auf – die größten Erfolge kommen oft nach den härtesten Herausforderungen.",
+                "Dein Engagement inspiriert mehr, als du vielleicht glaubst.",
+                "Das Lernen selbst ist schon ein großer Sieg.",
+                "Du gestaltest deine Zukunft mit jedem Moment, den du investierst.",
+                "Selbst kleine Fortschritte sind wertvoll – sie summieren sich.",
+                "Das Universum liebt einen hartnäckigen Geist.",
+                "Erinnerst du dich, wie viel du schon gemeistert hast? Das ist beeindruckend!",
+                "Die Zeit, die du jetzt investierst, ist eine Investition in dein bestes Selbst.",
+                "Herausforderungen sind nur Gelegenheiten in Verkleidung.",
+                "Es ist normal, manchmal müde zu sein – gönn dir Ruhe und starte wieder stark.",
+                "Der Weg des Lernens ist einer der edelsten, den ein Mensch gehen kann.",
+                "Du bist auf dem richtigen Weg – bleib beharrlich und stolz darauf."
+            ];
+            var randomIndex = Math.floor(Math.random() * sentences.length);
+            document.getElementById("speech-text").textContent = sentences[randomIndex];
+        });
+    </script>
 </body>
+
 </html>
