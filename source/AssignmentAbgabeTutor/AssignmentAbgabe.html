@@ -53,10 +53,10 @@
     <main class="main-content">
         <div class="left-section">
             <h3>assignment04_musterloesung.pdf</h3>
-            <button class="download-button">Download pdf</button>
+            <button class="download-button" onclick="showSpeechBubble('download')">Download pdf</button>
             
             <h3>assignment04_gruppe07.pdf</h3>
-            <button class="download-button">Download pdf</button>
+            <button class="download-button" onclick="showSpeechBubble('download')">Download pdf</button>
             
             <ul class="team-list">
                 <li>Mitglied: ABC</li>
@@ -66,6 +66,10 @@
             </ul>
             
             <p class="tutor">Tutor: XYZ</p>
+            <img class="profile-pic" src="../data/Leibniz.jpeg" alt="Profile Picture">
+            <div class="speech-bubble" id="speech-bubble">
+                <p id="speech-text"> </p>
+            </div>
         </div>
         
         <div class="right-section">
@@ -94,10 +98,26 @@
                 <label for="points">Erzielte Punkte von 24:</label>
                 <input type="text" name="points" required>
             </div>
-            <button class="korrektur-button">Abgeben</button>
+            <button class="korrektur-button" onclick="showSpeechBubble('upload')">Abgeben</button>
         </div>
     </main>
 
+    <script>
+        function showSpeechBubble(action) {
+            var speechText = "";
+            if (action === 'download') {
+                speechText = "Du trägst Verantwortung für die Förderung des Geistes. Sei gerecht, wohlwollend und konstruktiv – so förderst du die Harmonie des Lernens.";
+            } else if (action === 'upload') {
+                speechText = "Du trägst Verantwortung für die Förderung des Geistes. Sei gerecht, wohlwollend und konstruktiv – so förderst du die Harmonie des Lernens.";
+            }
+            var speechBubble = document.getElementById("speech-bubble");
+            document.getElementById("speech-text").textContent = speechText;
+            speechBubble.style.display = "block";
+            setTimeout(function () {
+                speechBubble.style.display = "none";
+            }, 10000);
+        }
+    </script>
 </body>
 
 </html>
