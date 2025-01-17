@@ -6,23 +6,35 @@ body {
 }
 
 header {
-    background-color: #0073e6;
-    color: white;
-    padding: 10px;
+    background-color: #f4f4f4;
+    color: black;
+    padding: 10px 20px;
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
+    width: 100%;
+    text-decoration: none;
 }
 
 .house-icon {
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 3.4em;
+    padding: 0;
     margin-right: 10px;
 }
 
-h1 {
-    margin: 0;
+.page-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.divider {
+    width: 100%;
+    border: none;
+    border-top: 2px solid black;
+    margin: 10px 0;
 }
 
 .table-section {
@@ -52,14 +64,14 @@ table th {
 
 button {
     padding: 10px 20px;
-    background-color: #0073e6;
+    background-color: black;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0073e6;
+    background-color: grey;
 }
 
 .popup {

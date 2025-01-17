@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabenübersicht</title>
+    <link rel="stylesheet" href="Stylesheet.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        let formModified = false;
+        const pointsInput = document.querySelector('input[name="points"]');
+        const submitButton = document.querySelector('.korrektur-button');
+        const homeButton = document.querySelector('.home-button');
+
+        pointsInput.addEventListener('input', () => {
+            formModified = pointsInput.value.trim() !== "";
+        });
+
+        submitButton.addEventListener('click', () => {
+            formModified = false;
+        });
+
+        window.addEventListener('beforeunload', (event) => {
+            if (formModified) {
+                // Einige Browser unterstützen nur diese Formulierung für die Warnmeldung.
+                event.returnValue = 'Sie haben ungespeicherte Änderungen. Möchten Sie wirklich die Seite verlassen?';
+            }
+        });
+
+        homeButton.addEventListener('click', (event) => {
+            if (formModified) {
+                const leave = confirm("Sie haben eine Punktzahl eingegeben. Möchten Sie wirklich die Seite verlassen, ohne die Korrektur abzugeben?");
+                if (!leave) {
+                    event.preventDefault();
+                }
+            }
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <header class="page-header">
+        <a href="../Startseite/Startseite.html">
+            <img class="home-button" src="../data/haus.png" alt="Startseite">
+        </a>
+        <h1 class="page-title">Korrektur HCI: Assignment 4</h1>
+        <span class="deadline">Frist: 01d 00h 24m</span>    
+    </header>
+    <hr class="divider">
+
+    <main class="main-content">
+        <div class="left-section">
+            <h3>assignment04_musterloesung.pdf</h3>
+            <button class="download-button">Download pdf</button>
+            
+            <h3>assignment04_gruppe07.pdf</h3>
+            <button class="download-button">Download pdf</button>
+            
+            <ul class="team-list">
+                <li>Mitglied: ABC</li>
+                <li>Mitglied: DEF</li>
+                <li>Mitglied: GHI</li>
+                <li>Mitglied: JKL</li>
+            </ul>
+            
+            <p class="tutor">Tutor: XYZ</p>
+        </div>
+        
+        <div class="right-section">
+            <h2>Bereits hochgeladene Korrekturen</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dateiname</th>
+                        <th>Hochgeladen am</th>
+                        <th>Aktionen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Korrektur4_gruppe07</td>
+                        <td>12:50 11.12.2024</td>
+                        <td>
+                            <button class="icon-button download-icon" title="Download"></button>
+                            <button class="icon-button delete-icon" title="Löschen"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="upload-button">Upload</button>
+            <div class="points">
+                <label for="points">Erzielte Punkte von 24:</label>
+                <input type="text" name="points" required>
+            </div>
+            <button class="korrektur-button">Abgeben</button>
+        </div>
+    </main>
+
+</body>
+
+</html>

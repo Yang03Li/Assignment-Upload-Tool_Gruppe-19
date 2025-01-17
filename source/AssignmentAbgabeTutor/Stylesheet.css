@@ -103,6 +103,26 @@ body {
     background-color: grey;
 }
 
+.korrektur-button {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 32%;
+}
+
+.korrektur-button:hover {
+    background-color: grey;
+}
+
+.points {
+    margin-top: 80px;
+    padding: 5px 10px;
+}
+
 .team-list {
     margin-top: 25px;
 }

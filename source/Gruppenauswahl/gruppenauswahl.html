@@ -11,9 +11,10 @@
         <a href="../Startseite/Startseite.html">
             <img src="../data/haus.png" alt="Startseite" class="house-icon">
         </a>
-        <h1>GBS: Grundlagen der Betriebssysteme</h1>
+        <h1 class="page-title">GBS: Grundlagen der Betriebssysteme</h1>
+        <h1></h1>
     </header>
-
+    <hr class="divider">
     <main>
         <section class="table-section">
             <table>
@@ -44,6 +45,8 @@
     </div>
 
     <script>
+        let formModified = false;
+
         const groups = [
             { name: "Gruppe 1", members: 3, maxMembers: 4 },
             { name: "Gruppe 2", members: 4, maxMembers: 4 },
@@ -52,12 +55,34 @@
 
         const tableBody = document.getElementById("groupTableBody");
 
-        function checkskip() {
+        document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('gruppebeigetreten') === 'true') {
                 window.location.href = '../Kursseite/Kursseite.html';
             }
-        }
-        
+
+            document.getElementById("newGroupName").addEventListener('input', () => {
+                formModified = true;
+            });
+
+            document.getElementById("createGroupButton").addEventListener('click', () => {
+                if (formModified) {
+                    const leave = confirm("Sie haben Änderungen vorgenommen, aber die Gruppe noch nicht erstellt. Möchten Sie die Seite wirklich verlassen?");
+                    if (!leave) {
+                        event.preventDefault();
+                    }
+                }
+            });
+
+            window.addEventListener('beforeunload', (event) => {
+                if (formModified) {
+                    event.preventDefault();
+                    event.returnValue = '';
+                }
+            });
+
+            renderGroups();
+        });
+
         function renderGroups() {
             tableBody.innerHTML = "";
             groups.forEach((group, index) => {
@@ -86,7 +111,6 @@
             });
         }
 
-
         function showCreateGroupInput() {
             document.getElementById("createGroupButton").style.display = "none";
             document.getElementById("createGroupDiv").style.display = "block";
@@ -102,6 +126,12 @@
         function createGroup() {
             const groupName = document.getElementById("newGroupName").value;
             if (groupName) {
+                const groupExists = groups.some(group => group.name.toLowerCase() === groupName.toLowerCase());
+                if (groupExists) {
+                    alert("Der Gruppenname existiert bereits. Bitte wähle einen anderen Namen.");
+                    return;
+                }
+
                 const newGroup = {
                     name: groupName,
                     members: 1,
@@ -112,9 +142,9 @@
                 document.getElementById("createGroupDiv").style.display = "none";
                 document.getElementById("newGroupName").value = "";
                 document.getElementById("createGroupButton").style.display = "block";
-                document.getElementById("createGroupButton").style.display = "none";
                 localStorage.setItem('gruppebeigetreten', 'true');
-                hideJoinButtons()
+                hideJoinButtons();
+                formModified = false;
                 setTimeout(checkskip, 1000);
             } else {
                 alert("Bitte gib einen Gruppennamen ein!");
@@ -135,7 +165,11 @@
             setTimeout(checkskip, 1000);
         }
 
-        renderGroups();
+        function checkskip() {
+            if (localStorage.getItem('gruppebeigetreten') === 'true') {
+                window.location.href = '../Kursseite/Kursseite.html';
+            }
+        }
     </script>
 </body>
 </html>
