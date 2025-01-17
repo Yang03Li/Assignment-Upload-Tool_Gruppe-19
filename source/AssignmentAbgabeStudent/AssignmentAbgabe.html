@@ -21,8 +21,8 @@
     <main class="main-content">
         <div class="left-section">
             <h3>assignment07.pdf</h3>
-            <button class="download-button">Download pdf</button>
-            
+            <button class="download-button" onclick="showSpeechBubble('download')">Download pdf</button>
+
             <ul class="team-list">
                 <li>Mitglied: Rico Spakowski</li>
                 <li>Mitglied: Tom Viehmann</li>
@@ -30,6 +30,10 @@
             </ul>
             
             <p class="tutor">Tutor: Noel Freimuth</p>
+            <img class="profile-pic" src="../data/Leibniz.jpeg" alt="Profile Picture">
+            <div class="speech-bubble" id="speech-bubble">
+                <p id="speech-text"> </p>
+            </div>
         </div>
         
         <div class="right-section">
@@ -61,13 +65,29 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="upload-button">Upload</button>
+            <button class="upload-button" onclick="showSpeechBubble('upload')">Upload</button>
         
             <h3>Bereits erreichte Punkte:</h3>
             <p>60 von 75</p>
         </div>
     </main>
 
+    <script>
+        function showSpeechBubble(action) {
+            var speechText = "";
+            if (action === 'download') {
+                speechText = "Betrachte sie nicht als Bürde, sondern als eine Übung, durch die du die Harmonie der Vernunft ergründest und dein Verständnis vertiefst. Strebe nach Klarheit und Ordnung – denn darin liegt die wahre Freude des Lernens.";
+            } else if (action === 'upload') {
+                speechText = "Du hast ein Werk vollbracht und deinem Geist Ausdruck verliehen – möge es zur weiteren Harmonie des Wissens beitragen! Jede abgegebene Aufgabe ist ein Schritt auf dem Weg zur Weisheit.";
+            }
+            var speechBubble = document.getElementById("speech-bubble");
+            document.getElementById("speech-text").textContent = speechText;
+            speechBubble.style.display = "block";
+            setTimeout(function() {
+                speechBubble.style.display = "none";
+            }, 5000);
+        }
+    </script>
 </body>
 
 </html>
