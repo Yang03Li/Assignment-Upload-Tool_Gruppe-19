@@ -151,3 +151,43 @@ li {
 .delete-icon::before {
     content: "🗑️";
 }
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.speech-bubble {
+    position: absolute;
+    background: black;
+    border-radius: .4em;
+    padding: 10px;
+    color: white;
+    width: 200px;
+    text-align: center;
+    display: none;
+    bottom: 20px;
+    left: 140px;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-color: black;
+    border-left: 0;
+    margin-top: -10px;
+}

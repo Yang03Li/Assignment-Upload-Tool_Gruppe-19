@@ -33,6 +33,30 @@ body {
     box-sizing: border-box;
 }
 
+.speech-bubble {
+    position: relative;
+    background: black;
+    border-radius: .4em;
+    padding: 10px;
+    color: white;
+    width: 200px;
+    text-align: center;
+    margin: 10px auto 0;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: black;
+    border-top: 0;
+    margin-left: -10px;
+}
+
 table {
     width: 100%;
     border-collapse: separate;
