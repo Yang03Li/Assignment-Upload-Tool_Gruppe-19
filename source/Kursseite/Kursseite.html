@@ -52,13 +52,11 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            history.pushState(null, document.title, window.location.href);
+        history.pushState(null, document.title, window.location.href);
 
-            window.onpopstate = function(event) {
-                window.history.go(-2);
-            };
-        });
+        window.onpopstate = function(event) {
+            window.location.href = "../Startseite/Startseite.html";
+        };
 
         function loadAssignment(assignment) {
             document.getElementById('assignment-content').innerHTML = `<h2>Assignment ${assignment}</h2><p>Hier sind die Inhalte für Assignment ${assignment}.</p>`;
